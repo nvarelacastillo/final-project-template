@@ -8,6 +8,8 @@ require '../app/controllers/MainController.php';
 require '../app/controllers/UserController.php';
 require '../app/models/User.php';
 
+require '../app/controllers/ProjectController.php';
+require '../app/models/Project.php';
 
 //set up env variables
 $env = parse_ini_file('../.env');
