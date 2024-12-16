@@ -1,12 +1,64 @@
-<html>
+<!-- Homepage -->
+<html lang="en">
+
     <head>
-        <!-- remember to route relative to index.php  -->
-        <script type="text/javascript" src="./assets/js/homepage.js"></script>
-        <link rel="stylesheet" href="./assets/styles/homepage.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="/public/assets/js/homepage.js"></script>
+        <link rel="stylesheet" href="/public/assets/styles/homepage.css">
+        <title>Homepage</title>
     </head>
 
     <body>
-        <p>homepage!</p>
-    </body>
-</html>
 
+        <!-- Navigation bar -->
+        <header class="navigation-bar">
+            <nav class="navigation-bar-header">
+                <div class="navigation-bar-container">
+                    <a href="homepage.html" class="navigation-bar-logo">Nicole Varela Castillo</a>
+                    <ul class="navigation-bar-links">
+                        <!-- Links to info pages -->
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="experience.html">Experience</a></li>
+                        <li><a href="skills.html">Skills</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Banner Section -->
+        <header class="main-banner">
+            <div class="main-banner-container">
+                <!-- Profile photo -->
+                <img src="headerPhoto.png" alt="Nicole Varela Castillo" class="main-banner-photo">
+                <div class="main-banner-content">
+                    <h1>Nicole Varela Castillo</h1>
+                    <div class="main-banner-buttons">
+                        <!-- Contact Links -->
+                        <a href="mailto:Nvarelacastillo@fordham.edu" class="button">Email Me</a>
+                        <a href="https://www.linkedin.com/in/nicole-varela-castillo" target="_blank" class="button">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Greeting based on time of day -->
+        <main>
+            <section>
+                <div id="greeting"></div>
+                <!-- About me section -->
+                <h2>About Me</h2>
+                <p>Hi, I’m Nicole Varela Castillo, a passionate Economics and Computer Science student at Fordham University. With a strong foundation in data visualization and consulting, I’ve had the privilege to intern with Korn Ferry and WorldStrides, where I honed my skills in interactive dashboards, economic analysis, and innovative solutions. Explore my portfolio to learn more about my education, professional experiences, and creative projects!</p>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>Nicole Varela Castillo</p>
+        </footer>
+
+    </body>
+
+</html>
