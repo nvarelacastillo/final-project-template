@@ -14,7 +14,7 @@ class Router {
         $this->urlArray = $this->routeSplit();
         $this->handleMainRoutes();
         $this->handleUserRoutes();
-        $this->handleProjectRoutes(); // Add Project Routes
+        $this->handleProjectRoutes(); //New
     }
 
     protected function routeSplit() {
@@ -43,18 +43,28 @@ class Router {
 
     // Added by me
     protected function handleProjectRoutes() {
-        $projectController = new ProjectController();
-
+        // Shows the projects
         if ($this->urlArray[1] === 'projects' && $_SERVER['REQUEST_METHOD'] === 'GET') {
-            $projectController->showProjectsView();
+            $projectController = new ProjectController();
+            $projectController->projectsView();
         }
 
+        // Gets the projects
         if ($this->urlArray[1] === 'api' && $this->urlArray[2] === 'projects' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+            $projectController = new ProjectController();
             $projectController->getAllProjects();
         }
 
+        // Saves a new project
         if ($this->urlArray[1] === 'api' && $this->urlArray[2] === 'projects' && $_SERVER['REQUEST_METHOD'] === 'POST') {
-            $projectController->addProject();
+            $projectController = new ProjectController();
+            $projectController->saveProject();
+        }
+
+        // Deletes a project
+        if ($this->urlArray[1] === 'api' && $this->urlArray[2] === 'projects' && isset($this->urlArray[3]) && $_SERVER['REQUEST_METHOD'] === 'DELETE') {
+            $projectController = new ProjectController();
+            $projectController->deleteProject($this->urlArray[3]);
         }
     }
 

@@ -2,21 +2,29 @@
 
 namespace app\models;
 
+use app\models\Model;
+
 class Project extends Model {
     protected $table = 'projects';
 
+    // Get all the projects
     public function getAllProjects() {
-        $sql = "SELECT title, description, link FROM {$this->table}";
-        return $this->query($sql);
+        return $this->findAll();
     }
 
-    // Create a new project
+    // Creates a new project
     public function createProject($data) {
-        $sql = "INSERT INTO {$this->table} (title, description, link) VALUES (:title, :description, :link)";
-        return $this->query($sql, [
+        $query = "INSERT INTO projects (title, description, link) VALUES (:title, :description, :link)";
+        return $this->query($query, [
             'title' => $data['title'],
             'description' => $data['description'],
             'link' => $data['link']
         ]);
+    }
+
+    //Deletes a project
+    public function deleteProject($id) {
+        $query = "DELETE FROM projects WHERE id = :id";
+        return $this->query($query, ['id' => $id]);
     }
 }

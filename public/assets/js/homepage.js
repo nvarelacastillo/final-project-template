@@ -1,3 +1,4 @@
+// Adds JS greeting to homepage based on the time
 console.log('calling homepage');
 
 var today = new Date();
