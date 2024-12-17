@@ -13,7 +13,8 @@ class ProjectController {
 
     // Connects front end
     public function projectsView() {
-        include 'public/assets/views/main/projects.html';
+        include __DIR__ . '/../../public/assets/views/main/projects.html';
+
         exit();
     }
 
@@ -56,7 +57,7 @@ class ProjectController {
         exit();
     }
 
-    // Validates project information
+    //Validates project information
     private function validateProject($inputData) {
         $errors = [];
 

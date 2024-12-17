@@ -19,7 +19,7 @@ class Project extends Model {
             'title' => $data['title'],
             'description' => $data['description'],
             'link' => $data['link']
-        ]);
+        ] );
     }
 
     //Deletes a project

@@ -3,14 +3,23 @@
 namespace app\controllers;
 
 class MainController extends Controller {
-
     public function homepage() {
-        //remember to route relative to index.php
-        //require page and exit to return an HTML page
-        $this->returnView('./assets/views/main/homepage.html');
+        $this->returnView('../public/assets/views/main/homepage.html');
     }
 
-    public function notFound() {
+    public function educationView() {
+        $this->returnView('../public/assets/views/main/education.html');
     }
 
+    public function experienceView() {
+        $this->returnView('../public/assets/views/main/experience.html');
+    }
+
+    public function skillsView() {
+        $this->returnView('../public/assets/views/main/skills.html');
+    }
+
+    public function contactView() {
+        $this->returnView('../public/assets/views/main/contact.html');
+    }
 }

@@ -16,6 +16,7 @@ abstract class Model {
     }
 
     public function query($query, $data = []) {
+
         $con = $this->connect();
         $stm = $con->prepare($query);
         $check = $stm->execute($data);

@@ -22,10 +22,38 @@ class Router {
         return explode("/", $removeQueryParams);
     }
 
+    //Adding routes
     protected function handleMainRoutes() {
+        $mainController = new MainController();
+
+        //Homepage page
         if ($this->urlArray[1] === '' && $_SERVER['REQUEST_METHOD'] === 'GET') {
-            $mainController = new MainController();
             $mainController->homepage();
+            exit();
+        }
+
+        //Education page
+        if ($this->urlArray[1] === 'education' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+            $mainController->educationView();
+            exit();
+        }
+
+        //Experience page
+        if ($this->urlArray[1] === 'experience' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+            $mainController->experienceView();
+            exit();
+        }
+
+        //Skills page
+        if ($this->urlArray[1] === 'skills' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+            $mainController->skillsView();
+            exit();
+        }
+
+        //Contact page
+        if ($this->urlArray[1] === 'contact' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+            $mainController->contactView();
+            exit();
         }
     }
 
@@ -42,6 +70,8 @@ class Router {
     }
 
     // Added by me
+
+
     protected function handleProjectRoutes() {
         // Shows the projects
         if ($this->urlArray[1] === 'projects' && $_SERVER['REQUEST_METHOD'] === 'GET') {
