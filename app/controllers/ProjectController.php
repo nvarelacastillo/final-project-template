@@ -35,7 +35,7 @@ class ProjectController {
         $this->projectModel->createProject($validatedData);
 
         http_response_code(201);
-        echo json_encode(['message' => 'Project added successfully']);
+        echo json_encode(['message' => 'Success!']);
         exit();
     }
 
