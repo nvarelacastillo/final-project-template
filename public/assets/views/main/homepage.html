@@ -52,11 +52,63 @@
                     <!--Greeting color-->
                     document.getElementById('greeting').style.color = '#B3A098';
                 </script>
+                <!--Bible quote joke-->
+                <div class="bible-quote">
+                    <blockquote>
+                        <p>"Thou shalt hire Nicole Varela Castillo, for her skills in data visualization and creative problem-solving are abundant."</p>
+                        <cite>- Resumes 12:21</cite>
+                    </blockquote>
+                </div>
                 <!--About me section-->
                 <h2>About Me</h2>
                 <p>Hi, I’m Nicole Varela Castillo, a passionate Economics and Computer Science student at Fordham University. With a strong foundation in data visualization and consulting, I’ve had the privilege to intern with Korn Ferry and WorldStrides, where I honed my skills in interactive dashboards, economic analysis, and innovative solutions. Explore my portfolio to learn more about my education, professional experiences, and creative projects!</p>
             </section>
         </main>
+
+        <!--Riddle API-->
+        <div class="quote-box" style="text-align: center; margin-top: 20px; margin-bottom: 50px;">
+            <h2>Can you Solve the Riddle of the Day?</h2>
+            <h4>(This is definitely not a ploy to keep you on my website)</h4>
+            <blockquote id="riddle" style="font-size: 1.2rem; color: dimgrey; margin-bottom: 20px;">Loading...</blockquote>
+            <span id="answer" style="font-size: 1rem; color: #a6b4d0; display: none;">Loading...</span>
+            <button id="show-answer" style="background-color: #dce5f3; color: dimgrey; border: none; padding: 10px 20px; border-radius: 6px; margin-top: 20px;cursor: pointer; transition: background-color 0.3s;">Show Answer</button>
+        </div>
+
+        <!--Script to get API-->
+        <script>
+            const riddleElement = document.getElementById("riddle");
+            const answerElement = document.getElementById("answer");
+            const showAnswerButton = document.getElementById("show-answer");
+
+            const api_url = "https://api.api-ninjas.com/v1/riddles";
+            const api_key = "PwaYqAP0aM1QhxRXqqbkVw==6QIUA0O1jXv9w1HZ"; <!--Riddle API key-->
+
+            async function getRiddle(url) {
+                const response = await fetch(url, {
+                    method: "GET",
+                    headers: {
+                        "X-Api-Key": api_key,
+                    },
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const riddle = data[0];
+                    riddleElement.innerHTML = riddle.question;
+                    answerElement.innerHTML = `Answer: ${riddle.answer}`;
+                    showAnswerButton.style.display = "inline-block";
+                } else {
+                    riddleElement.innerHTML = "Something is wrong...";
+                }
+            }
+
+            showAnswerButton.addEventListener("click", () => {
+                answerElement.style.display = "block";
+                showAnswerButton.style.display = "none";
+            });
+
+            getRiddle(api_url);
+        </script>
 
         <!--Footer-->
         <footer>

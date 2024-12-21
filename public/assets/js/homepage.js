@@ -1,11 +1,12 @@
 console.log('calling homepage');
 
+// JavaScript: Greeting based on the time of day
 document.addEventListener('DOMContentLoaded', () => {
     var today = new Date();
     var hourNow = today.getHours();
     var greeting;
 
-    //Greeting based on the time of day
+    // Time based response
     if (hourNow > 18) {
         greeting = 'Good evening, welcome to my online resume!';
     } else if (hourNow > 12) {
