@@ -74,15 +74,16 @@
             <button id="show-answer" style="background-color: #dce5f3; color: dimgrey; border: none; padding: 10px 20px; border-radius: 6px; margin-top: 20px;cursor: pointer; transition: background-color 0.3s;">Show Answer</button>
         </div>
 
-        <!--Script to get API-->
+        <!--Riddle API script-->
         <script>
             const riddleElement = document.getElementById("riddle");
             const answerElement = document.getElementById("answer");
             const showAnswerButton = document.getElementById("show-answer");
 
-            const api_url = "https://api.api-ninjas.com/v1/riddles";
+            const api_url = "https://api.api-ninjas.com/v1/riddles"; <!--URL-->
             const api_key = "PwaYqAP0aM1QhxRXqqbkVw==6QIUA0O1jXv9w1HZ"; <!--Riddle API key-->
 
+            <!--Gets the riddle from the API-->
             async function getRiddle(url) {
                 const response = await fetch(url, {
                     method: "GET",
@@ -91,6 +92,7 @@
                     },
                 });
 
+                <!--Success?-->
                 if (response.ok) {
                     const data = await response.json();
                     const riddle = data[0];
@@ -102,11 +104,13 @@
                 }
             }
 
+            <!--Show Button-->
             showAnswerButton.addEventListener("click", () => {
                 answerElement.style.display = "block";
                 showAnswerButton.style.display = "none";
             });
 
+            <!--Calls riddle function-->
             getRiddle(api_url);
         </script>
 
